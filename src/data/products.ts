@@ -1,4 +1,3 @@
-
 export type Product = {
   id: string;
   name: string;
@@ -17,7 +16,7 @@ export const products: Product[] = [
     name: "Smart TV 55\" 4K",
     description: "Smart TV com resolução 4K, tela de 55 polegadas e sistema operacional integrado para streaming e aplicativos.",
     price: 2499.99,
-    image: "https://images.unsplash.com/photo-1624179416192-3e4fcc2db652?q=80&w=800&h=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=800&h=600&auto=format&fit=crop",
     category: "Eletrônicos",
     featured: true,
     inStock: true,
@@ -90,7 +89,7 @@ export const products: Product[] = [
     name: "Console de Videogame",
     description: "Console de última geração com gráficos impressionantes, armazenamento amplo e jogos exclusivos.",
     price: 3799.99,
-    image: "https://images.unsplash.com/photo-1591370874773-6702dfa7d117?q=80&w=800&h=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?q=80&w=800&h=600&auto=format&fit=crop",
     category: "Games",
     featured: true,
     inStock: true,

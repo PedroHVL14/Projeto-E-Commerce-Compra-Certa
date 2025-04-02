@@ -24,11 +24,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <Link to={`/produto/${product.id}`} className="block">
       <div className="product-card bg-white rounded-md shadow-sm overflow-hidden border border-gray-100">
-        <div className="overflow-hidden">
+        <div className="overflow-hidden h-48">
           <img 
             src={product.image} 
             alt={product.name} 
-            className="product-image"
+            className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
             onError={(e) => {
               e.currentTarget.src = "https://via.placeholder.com/300x200?text=Imagem+Indisponível";
             }}
