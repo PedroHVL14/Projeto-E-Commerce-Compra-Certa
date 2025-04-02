@@ -1,21 +1,24 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import CartSidebar from '@/components/cart/CartSidebar';
 
 const Navbar = () => {
   const { itemsCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/produtos?busca=${encodeURIComponent(searchQuery)}`;
+      navigate(`/produtos?busca=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery('');
     }
   };
 
@@ -38,6 +41,12 @@ const Navbar = () => {
             </Link>
             <Link to="/ofertas" className="text-gray-700 hover:text-brand-teal transition-colors">
               Ofertas
+            </Link>
+            <Link to="/faq" className="text-gray-700 hover:text-brand-teal transition-colors">
+              FAQ
+            </Link>
+            <Link to="/contato" className="text-gray-700 hover:text-brand-teal transition-colors">
+              Contato
             </Link>
           </div>
 
@@ -64,31 +73,14 @@ const Navbar = () => {
                 <Button variant="ghost" className="relative p-2">
                   <ShoppingCart className="h-6 w-6" />
                   {itemsCount > 0 && (
-                    <span className="cart-badge">{itemsCount}</span>
+                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      {itemsCount}
+                    </span>
                   )}
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-96">
-                <div className="py-6 h-full flex flex-col">
-                  <h2 className="text-xl font-bold mb-6">Seu Carrinho</h2>
-                  <div className="flex-1">
-                    {itemsCount === 0 ? (
-                      <div className="text-center py-8">
-                        <ShoppingCart className="h-12 w-12 mx-auto text-gray-400" />
-                        <p className="mt-2 text-gray-500">Seu carrinho está vazio</p>
-                        <Link to="/produtos">
-                          <Button variant="outline" className="mt-4">
-                            Continuar Comprando
-                          </Button>
-                        </Link>
-                      </div>
-                    ) : (
-                      <Link to="/carrinho">
-                        <Button className="w-full">Ver Carrinho</Button>
-                      </Link>
-                    )}
-                  </div>
-                </div>
+              <SheetContent side="right" className="w-full sm:w-96 p-0">
+                <CartSidebar />
               </SheetContent>
             </Sheet>
 
@@ -145,6 +137,20 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Ofertas
+              </Link>
+              <Link 
+                to="/faq" 
+                className="text-gray-700 hover:text-brand-teal py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQ
+              </Link>
+              <Link 
+                to="/contato" 
+                className="text-gray-700 hover:text-brand-teal py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contato
               </Link>
             </div>
           </div>

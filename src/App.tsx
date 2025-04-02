@@ -15,6 +15,10 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import CategoriesPage from "./pages/CategoriesPage";
 import OffersPage from "./pages/OffersPage";
 import NotFound from "./pages/NotFound";
+import FAQPage from "./pages/FAQPage";
+import ContactPage from "./pages/ContactPage";
+import ReturnPolicyPage from "./pages/ReturnPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +38,10 @@ const App = () => (
             <Route path="/checkout/confirmation" element={<OrderConfirmation />} />
             <Route path="/categorias" element={<CategoriesPage />} />
             <Route path="/ofertas" element={<OffersPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contato" element={<ContactPage />} />
+            <Route path="/politica-de-devolucao" element={<ReturnPolicyPage />} />
+            <Route path="/termos-de-servico" element={<TermsOfServicePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
