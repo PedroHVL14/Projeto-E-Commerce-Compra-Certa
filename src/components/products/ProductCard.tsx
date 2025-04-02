@@ -29,6 +29,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             src={product.image} 
             alt={product.name} 
             className="product-image"
+            onError={(e) => {
+              e.currentTarget.src = "https://via.placeholder.com/300x200?text=Imagem+Indisponível";
+            }}
           />
         </div>
         <div className="p-4">
@@ -61,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <Button 
               size="sm" 
               onClick={handleAddToCart}
-              className="bg-brand-teal hover:bg-brand-teal/90"
+              className="bg-brand-teal hover:bg-brand-teal/90 text-white"
             >
               <ShoppingCart className="h-4 w-4 mr-1" />
               <span className="sr-only sm:not-sr-only sm:inline-block">Adicionar</span>

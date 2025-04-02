@@ -84,8 +84,14 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Improve buttons visibility */
+  button {
+    @apply text-foreground;
+  }
 }
 
+/* Product card styling */
 .product-card {
   @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
 }
@@ -100,4 +106,28 @@
 
 .product-card:hover .product-image {
   @apply scale-105;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease forwards;
+}
+
+/* Link hover effect */
+.hover-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-brand-teal after:transition-all after:duration-300 hover:after:w-full;
 }

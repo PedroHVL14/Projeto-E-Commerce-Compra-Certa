@@ -51,7 +51,10 @@ const ProductDetailPage = () => {
             <img 
               src={product.image} 
               alt={product.name} 
-              className="w-full h-auto object-contain max-h-[500px]" 
+              className="w-full h-auto object-contain max-h-[500px]"
+              onError={(e) => {
+                e.currentTarget.src = "https://via.placeholder.com/500x500?text=Imagem+Indisponível";
+              }}
             />
           </div>
           
@@ -107,7 +110,7 @@ const ProductDetailPage = () => {
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-brand-teal hover:bg-brand-teal/90 px-8"
+                className="bg-brand-teal hover:bg-brand-teal/90 text-white px-8"
                 onClick={handleAddToCart}
               >
                 <ShoppingCart className="h-5 w-5 mr-2" />
